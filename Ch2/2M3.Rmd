@@ -1,0 +1,46 @@
+---
+title: "2M3: Probability that the globe was Earth given land observation."
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.width = 5.5,
+  fig.height = 3.5
+)
+```
+Suppose there are two globes, one for Earth and one for Mars. 
+
+The Earth globe is 70% covered in water. 
+
+The Mars globe is 100% land. 
+
+Further suppose that one of these globes - you do not know which - was tossed in the air and produced 
+a "land" observation. Assume that each globe was equally likely to be tossed. 
+
+Show that the posterior probability that the globe was the Earth, conditional on seeing "land" is $Pr(Earth|land) = 0.23$.
+
+```{r message=FALSE }
+library(dplyr)
+library(ggplot2)
+
+p_land_Earth <- 0.3
+p_land_Mars <- 1.0
+p_Earth <- 0.5
+p_Mars <- 0.5
+
+# We use Bayes' theorem to compute the posterior probability
+
+P = (p_land_Earth * p_Earth) / 
+    ((p_land_Earth * p_Earth) + (p_land_Mars * p_Mars))
+
+print(P)
+
+```
+
+We use the Bayes' theorem formula:
+
+$$
+\text{Pr(Earth | land)} = \frac{\text{Pr(land|Earth) Pr(Earth)}}{\text{Pr(land|Earth) Pr(Earth) + Pr(land|Mars) Pr(Mars)}} = \frac{0.3 \times 0.5}{0.3 \times 0.5 + 1 \times 0.5} = 0.23
+$$
