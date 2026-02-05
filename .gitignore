@@ -1,3 +1,4 @@
 .Rhistory
 *.pdf
+*.html
 render_md.R
