@@ -1,0 +1,1 @@
+Exercises and Solutions from the Statistical Rethinking book.
